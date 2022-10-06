@@ -1,6 +1,13 @@
-const title = document.getElementById("title");
+const title = document.querySelector(".hello h1");
+// querySelector : only brings the first element
+/*
+  사용빈도
+  querySelector >>>>> getElementById >>> querySelectorAll
+*/
 
-// element를 더 자세히 보여줌
-// console.dir(title);
+const title2 = document.querySelectorAll(".hello h1");
+// querySelectorAll : array
 
-title.innerText = "Got you!";
+
+console.log(title);
+console.log(title2);
