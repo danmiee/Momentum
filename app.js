@@ -1,13 +1,9 @@
-const title = document.querySelector(".hello h1");
-// querySelector : only brings the first element
-/*
-  사용빈도
-  querySelector >>>>> getElementById >>> querySelectorAll
-*/
+const title = document.querySelector("div.hello:first-child h1");
 
-const title2 = document.querySelectorAll(".hello h1");
-// querySelectorAll : array
+handleTitleClick = () => {
+  console.log("title was clicked!");
+}
 
+title.addEventListener("click",handleTitleClick);
 
-console.log(title);
-console.log(title2);
+handleTitleClick()
