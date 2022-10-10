@@ -1,26 +1,12 @@
-// const loginForm = document.getElementById("login-form");
-// const loginInput = loginForm.querySelector("input");
-// const loginButton = loginForm.querySelector("button");
-// loginForm이 html의 요소라서 그 안에서 input과 button을 찾을 수 있음
-
+const loginForm = document.querySelector("#login-form");
 const loginInput = document.querySelector("#login-form input");
-const loginButton = document.querySelector("#login-form button");
 
-/*
-onLoginBtnClick = () => {
-  const username = loginInput.value;
-  // 유효성검사 연습
-    if (username === "") {
-      alert("Please write your name");
-    } else if(username.length>15) {
-      alert ("Your name is too long.")
-    }
-    // html에서 input 속성으로 제한 가능
-    // (단, input이 form의 자식요소일 때만 적용됨)
-  
-  console.log(username);
+onLoginSubmit = (event) => {
+  event.preventDefault();
+  // 첫번째 argument로 발생된 event에 대한 정보 받기 & 브라우저가 기본 동작(새로고침) 실행하지 못하게 막기
+  console.log(event);
 }
 
-loginButton.addEventListener("click", onLoginBtnClick);
-// button이 아닌 submit타입 input으로 작성 가능
-*/
+loginForm.addEventListener("submit", onLoginSubmit);
+
+// 자바스크립트는 정보를 가진 채로 함수를 실행시킴
