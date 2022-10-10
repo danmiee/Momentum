@@ -1,7 +1,12 @@
 const clock = document.querySelector("#clock")
 
-sayHello = () => {
-    console.log("hello");
+getClock = () => {
+    const date = new Date();
+    clock.innerText = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
 }
 
-setInterval(sayHello, 5000);
+// 시계 즉시호출
+getClock();
+
+// 1초마다 재호출
+setInterval(getClock, 1000);
