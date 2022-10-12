@@ -53,6 +53,10 @@ const author = document.querySelector("#quote span:last-child");
 // // 내림
 // console.log(Math.floor());
 
+/*
+  배열의 인덱스는 0부터 시작하기 때문에
+  크기만큼 곱하고 소수점 이하를 버리면 원하는 정수를 얻을 수 있음
+*/
 const todaysQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
 quote.innerText = todaysQuote.quote;
