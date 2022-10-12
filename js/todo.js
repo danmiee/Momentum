@@ -5,7 +5,7 @@ const toDoList = document.getElementById("todo-list");
 
 handletoDoSubmit = (event) => {
   event.preventDefault();
-  console.log(toDoInput.value);   // toDoInput 값을 새로운 변수에 복사
+  const newTodo = toDoInput.value;   // toDoInput 값을 새로운 변수에 복사
   toDoInput.value = "";
 
 }
