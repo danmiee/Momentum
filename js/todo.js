@@ -3,6 +3,8 @@
   1. newTodo에 id 부여하기
   2. X버튼에 id 부여하기
   3. id로 Delete하기
+    1) filter로 새 배열 만들기
+    2) toDos 배열 새 배열로 바꾸기
 */
 
 const toDoForm = document.getElementById("todo-form");
@@ -20,6 +22,10 @@ function saveToDos() {
 function deleteToDo(event) {
   const li = event.target.parentElement;
   li.remove();
+  toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
+    // li.id와 다른 toDo.id는 남겨두기
+    // type이 일치해야 비교 가능
+  saveToDos();
 }
 
 function paintToDo(newTodo) {
@@ -57,7 +63,6 @@ function sayHello(item) {
 }
 
 const savedToDos = localStorage.getItem(TODOS_KEY);
-console.log(savedToDos);
 
 if(savedToDos !== null) {
   const parsedToDos = JSON.parse(savedToDos);
