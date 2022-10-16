@@ -5,7 +5,7 @@ const toDoList = document.getElementById("todo-list");
 
 const TODOS_KEY = "todos";
 
-const toDos = [];
+let toDos = [];
 
 // JSON.parse : 배열로 반환
 
@@ -55,9 +55,9 @@ console.log(savedToDos);
 
 if(savedToDos !== null) {
   const parsedToDos = JSON.parse(savedToDos);
-  console.log(parsedToDos);
-  
-  // 함수를 따로 만들지 않고 화살표 함수 사용
-    // parsedToDos에 있는 각각의 item에 대해 => 뒤 내용을 실행
-  parsedToDos.forEach((item) => console.log("this is the turn of ", item));
+  parsedToDos.forEach(paintToDo);
+  // 미리 만들어둔 paintToDo 함수 활용
+  // > const toDos = [];이면 새로 추가한 것만 localStorage에 저장되고 예전거 사라짐
+  toDos = parsedToDos;
+  // toDos 선언을 let으로 바꾸고 savedToDos가 있을 때 기존값 복원하기
 }
