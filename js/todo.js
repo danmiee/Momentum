@@ -1,6 +1,6 @@
 /* 해결과제 : Delete 반영
   > 유저가 어떤걸 삭제했는지 알고 지워야함
-  1. newTodo에 id 부여하기 / 여기까지 완료
+  1. newTodo에 id 부여하기
   2. X버튼에 id 부여하기
   3. id로 Delete하기
 */
@@ -27,7 +27,6 @@ function paintToDo(newTodo) {
   li.id = newTodo.id;
   const span = document.createElement("span");
   span.innerText = newTodo.text;
-    // 3. paintToDo의 매개변수로 Object를 사용할 거니 맞춰서 변경해야함
   const button = document.createElement("button");
 
   button.innerText = "❌";
@@ -42,12 +41,10 @@ function handletoDoSubmit(event) {
   event.preventDefault();
   const newTodo = toDoInput.value;
   toDoInput.value = "";
-  // 1. id를 가진 object 생성
   const newTodoObj = {
     text:newTodo,
     id: Date.now(),
   };
-  // 2. newTodoObj 저장하고 노출
   toDos.push(newTodoObj);
   paintToDo(newTodoObj);
   saveToDos();
@@ -67,3 +64,13 @@ if(savedToDos !== null) {
   parsedToDos.forEach(paintToDo);
   toDos = parsedToDos;
 }
+
+/*
+  array에서 삭제란?
+  지우고 싶은 요소를 빼고 새로운 array를 만드는 것
+
+  filter 활용
+  - 배열의 요소에 대한 boolean값을 반환하는 조건함수 생성
+  - 객체배열에 filter함수로 조건적용
+  - true : 호출 / false > 제외
+*/
