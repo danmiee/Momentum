@@ -1,17 +1,19 @@
+/* 해결과제 : Delete 반영
+  > 유저가 어떤걸 삭제했는지 알고 지워야함
+  1. newTodo에 id 부여하기 / 여기까지 완료
+  2. X버튼에 id 부여하기
+  3. id로 Delete하기
+*/
+
 const toDoForm = document.getElementById("todo-form");
 const toDoInput = document.querySelector("#todo-form input");
-// const toDoInput = toDoForm.querySelector("input");
 const toDoList = document.getElementById("todo-list");
 
 const TODOS_KEY = "todos";
 
 let toDos = [];
 
-// JSON.parse : 배열로 반환
-
 function saveToDos() {
-  // localStage는 array 저장불가, text만 저장가능
-  // JSON.stringify : object, array, 어떤 코드든 String으로 만들어줌
   localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
 }
 
@@ -22,14 +24,15 @@ function deleteToDo(event) {
 
 function paintToDo(newTodo) {
   const li = document.createElement("li");
+  li.id = newTodo.id;
   const span = document.createElement("span");
-  span.innerText = newTodo;
+  span.innerText = newTodo.text;
+    // 3. paintToDo의 매개변수로 Object를 사용할 거니 맞춰서 변경해야함
   const button = document.createElement("button");
 
   button.innerText = "❌";
   button.addEventListener("click", deleteToDo);
 
-  // append는 항상 마지막에
   li.appendChild(span);
   li.appendChild(button);
   toDoList.appendChild(li);
@@ -37,10 +40,16 @@ function paintToDo(newTodo) {
 
 function handletoDoSubmit(event) {
   event.preventDefault();
-  const newTodo = toDoInput.value;   // toDoInput 값을 새로운 변수에 복사
+  const newTodo = toDoInput.value;
   toDoInput.value = "";
-  toDos.push(newTodo);
-  paintToDo(newTodo);
+  // 1. id를 가진 object 생성
+  const newTodoObj = {
+    text:newTodo,
+    id: Date.now(),
+  };
+  // 2. newTodoObj 저장하고 노출
+  toDos.push(newTodoObj);
+  paintToDo(newTodoObj);
   saveToDos();
 }
 
@@ -56,8 +65,5 @@ console.log(savedToDos);
 if(savedToDos !== null) {
   const parsedToDos = JSON.parse(savedToDos);
   parsedToDos.forEach(paintToDo);
-  // 미리 만들어둔 paintToDo 함수 활용
-  // > const toDos = [];이면 새로 추가한 것만 localStorage에 저장되고 예전거 사라짐
   toDos = parsedToDos;
-  // toDos 선언을 let으로 바꾸고 savedToDos가 있을 때 기존값 복원하기
 }
