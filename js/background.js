@@ -14,4 +14,4 @@ bgImage.src = `./img/${chosenImage}`;
     append : 맨아래
     prepend : 맨위
   */
-document.body.appendChild(bgImage);
+document.getElementById("img-center").appendChild(bgImage);

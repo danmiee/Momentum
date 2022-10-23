@@ -7,8 +7,8 @@ function onGeoOK(position){
     fetch(url)
     .then((response) => response.json())
     .then((data) => {
-        const weather = document.querySelector("#weather span:first-child");
-        const city = document.querySelector("#weather span:last-child");
+        const weather = document.querySelector("#location span:first-child");
+        const city = document.querySelector("#location span:last-child");
         city.innerText = data.name;
         weather.innerText = `${data.weather[0].main}, ${data.main.temp}`;
         /* Error

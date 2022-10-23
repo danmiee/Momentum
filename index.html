@@ -2,38 +2,44 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css" />
-    <title>Momentum App</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./css/style.css" />
+	<title>Momentum App</title>
 </head>
 
 <body>
-    <h1 id="clock">00:00:00</h2>
-    <form class="hidden" id="login-form">
-        <input required maxlength="15" type="text" placeholder="What is your name?" />
-        <input type="submit" value="Log In">
-    </form>
-    <h2 class="hidden" id="greeting"></h1>
-    <form id="todo-form">
-        <input type="text" placeholder="Write a To Do and Press Enter" required="required">
-    </form>
-    <ul id="todo-list"></ul>
-    <div id="quote">
-        <span></span>
-        <span></span>
-    </div>
-    <div id="weather">
-        <span id="city"></span>
-        <span id="weather"></span>
-    </div>
-    <script src="./js/clock.js"></script>
-    <script src="./js/greetings.js"></script>
-    <script src="./js/quotes.js"></script>
-    <script src="./js/background.js"></script>
-    <script src="./js/todo.js"></script>
-    <script src="./js/whether.js"></script>
+	<div id="wrap">
+		<h1 id="clock">00:00:00</h2>
+			<form class="hidden" id="login-form">
+				<input required maxlength="15" type="text" placeholder="What is your name?" id="name"/>
+				<input type="submit" value="Log In" id="login-bt">
+			</form>
+			<h2 class="hidden" id="greeting">
+		</h1>
+		<form id="todo-form">
+			<input type="text" placeholder="Write a To Do and Press Enter" required="required" id="todo-text">
+		</form>
+		<ul id="todo-list"></ul>
+		<div id="quote">
+			<span></span><br/>
+			<span></span>
+		</div>
+		<div id="location">
+			<span id="city"></span>
+			<span id="weather"></span>
+		</div>
+		<div class="img-size">
+			<div id="img-center"></div>
+		</div>
+		<script src="./js/clock.js"></script>
+		<script src="./js/greetings.js"></script>
+		<script src="./js/quotes.js"></script>
+		<script src="./js/background.js"></script>
+		<script src="./js/todo.js"></script>
+		<script src="./js/location.js"></script>
+	</div>
 </body>
 
 </html>

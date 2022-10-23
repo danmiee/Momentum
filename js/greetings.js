@@ -25,7 +25,7 @@ paintGreetings = () => {
   // 인자를 넣은 경우 화면에 출력되게 하는 것이 목표이므로 값을 넣어줄 수 있는 인자를 가져오면 됨
   const username = localStorage.getItem(USERNAME_KEY);
   // 함수 내에서 미리 정의하면 인자를 따로 적지 않아도 됨
-  greeting.innerText = `Hello, ${username}`;
+  greeting.innerText = `Hello, ${username}!`;
   greeting.classList.remove(HIDDEN_CLASSNAME);
 }
 
