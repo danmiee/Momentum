@@ -12,7 +12,7 @@ onLoginSubmit = (event) => {
   event.preventDefault();
   // (2) loginForm 숨기기
   loginForm.classList.add(HIDDEN_CLASSNAME);
-  // (3) loginInpug.value를 username 변수로 저장
+  // (3) loginInput.value를 username 변수로 저장
   const username = loginInput.value;
   // (4) local storage에 username값을 username키와 함께 저장
   localStorage.setItem(USERNAME_KEY, username);
